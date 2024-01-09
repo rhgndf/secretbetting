@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Secret Betting</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha3/0.6.0/sha3.min.js"></script>
+</head>
+<body>
+    <input type="text" id="days" placeholder="Days">
+    <input type="text" id="gift" placeholder="Gift">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="calculateHash()">Calculate Hash</button>
+    <pre id="hashOutput"></pre>
+
+    <script>
+        function calculateHash() {
+            var days = document.getElementById("days").value;
+            var gift = document.getElementById("gift").value;
+            var password = document.getElementById("password").value;
+
+            var hash = sha3_256(days + ' ' + gift + ' ' + password);
+            document.getElementById("hashOutput").textContent = hash;
+        }
+    </script>
+</body>
+</html>
